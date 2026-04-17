@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="js.css" />
+  </head>
+  <body>
+    <h1>Student Result Manager</h1>
+
+    <div class="form">
+      <input type="text" id="nameInput" placeholder="Student Name" />
+
+      <input type="number" id="math" placeholder="Math Marks" />
+      <input type="number" id="science" placeholder="Science Marks" />
+      <input type="number" id="english" placeholder="English Marks" />
+
+      <button onclick="addRecord()">Add Record</button>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Name</th>
+          <th>Math</th>
+          <th>Science</th>
+          <th>English</th>
+          <th>Total</th>
+          <th>Average</th>
+        </tr>
+      </thead>
+      <tbody id="table-data"></tbody>
+    </table>
+    <div id="data"></div>
+    
+    <script>
+        
+const records = [];
+
+
+function addRecord() {
+
+  const name = document.getElementById("nameInput").value;
+  const math = document.getElementById("math").value;
+  const science = document.getElementById("science").value;
+  const english = document.getElementById("english").value;
+
+  const m = Number(math);
+  const s = Number(science);
+  const e = Number(english);
+
+  const total = m + s + e;
+  const average = (total / 3).toFixed(2);
+
+  records.push([name, m, s, e, total, average]);
+
+  
+  
+  //display Record
+  displayRecord();
+  
+  //clearField
+  clearField();
+
+  
+}
+
+function displayRecord() {
+const table = document.getElementById("table-data");
+  table.innerHTML = "";
+
+  records.forEach((rec, index) => {
+    const row = `
+     <tr>
+        <td>${index +1}</td>
+      <td>${rec[0]}</td>
+      <td>${rec[1]}</td>
+      <td>${rec[2]}</td>
+      <td>${rec[3]}</td>
+      <td>${rec[4]}</td>
+      <td>${rec[5]}</td>
+      
+    </tr>
+    `;
+    table.innerHTML += row;
+  });
+
+}
+function clearField (){
+  document.getElementById("nameInput").value =""
+  document.getElementById("math").value =""
+  document.getElementById("science").value =""
+  document.getElementById("english").value =""
+}
+
+  
+
+    </script>
+  </body>
+</html>

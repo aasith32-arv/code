@@ -1,0 +1,78 @@
+/* General Styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f9;
+    padding: 20px;
+}
+
+.table-container {
+    overflow-x: auto;
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+th, td {
+    border: 1px solid #333;
+    padding: 10px;
+    min-width: 100px;
+}
+
+th {
+    background-color: #fff;
+    font-weight: bold;
+}
+
+/* Time Column */
+.time {
+    font-weight: bold;
+    background-color: #fdfdfd;
+}
+
+/* Color Categories based on image */
+.fitness {
+    background-color: #a2e1f2; /* Light Blue */
+}
+
+.knowledge {
+    background-color: #d1d9e6; /* Greyish Blue */
+}
+
+.web {
+    background-color: #f9c5d1; /* Pink */
+}
+
+.green {
+    background-color: #c4f1be; /* Light Green */
+}
+
+.break {
+    background-color: #e8b9b9; /* Reddish Brownish tint */
+    color: #8b0000;
+}
+
+.typing {
+    background-color: #e0e0e0; /* Grey */
+    color: #2e7d32;
+    font-weight: 500;
+}
+
+.programming {
+    background-color: #ffd966; /* Yellow/Orange */
+}
+
+.tech {
+    background-color: #f0a6f0; /* Purple/Magenta */
+}
+
+.english {
+    background-color: #d0d0ff; /* Lavender */
+}

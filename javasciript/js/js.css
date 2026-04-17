@@ -1,0 +1,42 @@
+body {
+  font-family: Arial;
+  text-align: center;
+  background: #89e1fa;
+}
+
+.form {
+  margin: 20px;
+}
+
+input {
+  padding: 10px;
+  margin: 5px;
+  width: 150px;
+}
+
+button {
+  padding: 10px;
+  margin: 10px;
+  cursor: pointer;
+  background-color: rgb(46, 130, 130);
+  border-style: dashed;
+  
+}
+
+table {
+  margin: 20px auto;
+  border-collapse: collapse;
+  width: 90%;
+  background: white;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+th {
+  background: #245978;
+  color: white;
+}

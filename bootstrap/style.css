@@ -1,0 +1,17 @@
+#enter{
+    background-color: green;
+    width: 70px;
+    height: 20px;
+}
+
+#exit{
+    background-color: red;
+    width: 70px;
+    height: 20px;
+}
+.navbar{
+background-color: black;
+font-family: Arial;
+color: aliceblue;
+
+}
