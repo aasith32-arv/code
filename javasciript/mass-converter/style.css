@@ -1,0 +1,57 @@
+body {
+   margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #F2F2F2;
+  font: 1em sans-serif;
+}
+
+.converter-box {
+  width: 320px;
+  background: #ffffff;
+  padding: 25px;
+  
+  box-shadow: 0 0 20px rgba(8, 6, 6, 0.15);
+  text-align: center;
+}
+
+
+.btn {
+  width: 100%;
+  padding: 10px;
+  background: #069e0b;
+  color: white;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top:12px;
+}
+
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+.input-box,
+.output-box,
+.dropdown {
+  width: 93%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.arrow {
+  margin: 10px 0;
+  font-weight: bold;
+  color: #555;
+}
+
+.dropdown {
+    width: 100%;
+}
