@@ -1,5 +1,6 @@
 
 import './App.css'
+import Home from './pages/Home'
 import Contact from './pages/Contact'
 import About from './pages/About'
 import Footer from './components/Footer'
@@ -10,19 +11,22 @@ function App() {
   
   return (
     <>
-     <h1>React-rout-ex</h1>
 
-     <Header/>
-     <Contact/>
-     <About/>
-     <Footer/>
+
+
+   
     <BrowserRouter>
+    <Header/>
     <Routes>
-      <Route path="/" element={}>
+      <Route path="/" element={<Home />}/>
+      <Route path="/about" element={<About />}/>
+      <Route path="/contact" element={<Contact />}/>
+
     </Routes>
+    <Footer/>
     </BrowserRouter>
     </>
-  )
+  );
 }
 
 export default App
