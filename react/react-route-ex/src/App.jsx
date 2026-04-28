@@ -10,10 +10,11 @@ function App() {
   return (
     <>
      <h1>React-rout-ex</h1>
+     <Header/>
      <Contact/>
      <About/>
      <Footer/>
-     <Header/>
+     
     </>
   )
 }

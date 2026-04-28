@@ -1,7 +1,7 @@
 function Header(){
     return(
         <>
-<h1>This is a Footer page</h1>
+<h1>This is a Header page</h1>
         </>
     )
 }
