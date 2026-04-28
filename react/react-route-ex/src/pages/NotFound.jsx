@@ -1,7 +1,7 @@
 function NotFound(){
     return(
         <>
-<h1>404 page is  NotFound</h1>
+<h3>404 page is  NotFound</h3>
         </>
     )
 }

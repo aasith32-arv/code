@@ -1,7 +1,7 @@
 function Contact(){
     return(
         <>
-<h1>This is a Contact page</h1>
+<h3>This is a Contact page</h3>
         </>
     )
 }
