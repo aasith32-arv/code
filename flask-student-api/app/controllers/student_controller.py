@@ -17,6 +17,18 @@ def _parse_joined_date(value):
         return None, "joined_date must be in YYYY-MM-DD format."
 
 
+def _parse_bool(value, field_name):
+    if isinstance(value, bool):
+        return value, None
+    if isinstance(value, str):
+        normalized = value.strip().lower()
+        if normalized in {"true", "1", "yes"}:
+            return True, None
+        if normalized in {"false", "0", "no"}:
+            return False, None
+    return None, f"{field_name} must be a boolean."
+
+
 def _validate_student_payload(data, student_id=None):
     errors = []
     if not data:
@@ -51,6 +63,19 @@ def _validate_student_payload(data, student_id=None):
     if joined_raw is None or str(joined_raw).strip() == "":
         errors.append("joined_date is required.")
 
+    if "cgpa" in data:
+        try:
+            cgpa_val = float(data.get("cgpa"))
+            if cgpa_val < 0:
+                errors.append("cgpa must be a non-negative number.")
+        except (TypeError, ValueError):
+            errors.append("cgpa must be a non-negative number.")
+
+    if "is_active" in data:
+        _, bool_err = _parse_bool(data.get("is_active"), "is_active")
+        if bool_err:
+            errors.append(bool_err)
+
     return errors
 
 
@@ -73,7 +98,7 @@ def create_student():
             email=data.get("email").strip(),
             age=int(data.get("age")),
             cgpa=float(data.get("cgpa", 0.0)),
-            is_active=data.get("is_active", True),
+            is_active=_parse_bool(data.get("is_active", True), "is_active")[0],
             joined_date=joined_date,
         )
         db.session.add(student)
@@ -120,7 +145,7 @@ def update_student(student_id):
         if "cgpa" in data:
             student.cgpa = float(data.get("cgpa"))
         if "is_active" in data:
-            student.is_active = bool(data.get("is_active"))
+            student.is_active = _parse_bool(data.get("is_active"), "is_active")[0]
         student.joined_date = joined_date
         db.session.commit()
         return jsonify({"message": "Student updated successfully.", "student": student.to_dict()}), 200
