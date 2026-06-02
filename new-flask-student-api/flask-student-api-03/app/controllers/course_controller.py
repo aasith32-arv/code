@@ -4,6 +4,18 @@ from app.extensions import db
 from app.models.course_model import Course
 
 
+def _parse_bool(value, field_name):
+    if isinstance(value, bool):
+        return value, None
+    if isinstance(value, str):
+        normalized = value.strip().lower()
+        if normalized in ("true", "1", "yes"):
+            return True, None
+        if normalized in ("false", "0", "no"):
+            return False, None
+    return None, f"{field_name} must be a boolean."
+
+
 def _validate_course_payload(data, course_id=None):
     errors = []
     if not data:
@@ -41,6 +53,11 @@ def _validate_course_payload(data, course_id=None):
         except (TypeError, ValueError):
             errors.append("duration_months must be a positive integer.")
 
+    if "is_available" in data:
+        _, bool_err = _parse_bool(data.get("is_available"), "is_available")
+        if bool_err:
+            errors.append(bool_err)
+
     return errors
 
 
@@ -59,7 +76,7 @@ def create_course():
             course_fee=float(data.get("course_fee")),
             duration_months=int(data.get("duration_months")),
             description=data.get("description"),
-            is_available=data.get("is_available", True),
+            is_available=_parse_bool(data.get("is_available", True), "is_available")[0],
         )
         db.session.add(course)
         db.session.commit()
@@ -101,7 +118,7 @@ def update_course(course_id):
         if "description" in data:
             course.description = data.get("description")
         if "is_available" in data:
-            course.is_available = bool(data.get("is_available"))
+            course.is_available = _parse_bool(data.get("is_available"), "is_available")[0]
         db.session.commit()
         return jsonify({"message": "Course updated successfully.", "course": course.to_dict()}), 200
     except Exception:

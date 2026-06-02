@@ -6,6 +6,18 @@ from app.extensions import db
 from app.models.student_model import Student
 
 
+def _parse_bool(value, field_name):
+    if isinstance(value, bool):
+        return value, None
+    if isinstance(value, str):
+        normalized = value.strip().lower()
+        if normalized in ("true", "1", "yes"):
+            return True, None
+        if normalized in ("false", "0", "no"):
+            return False, None
+    return None, f"{field_name} must be a boolean."
+
+
 def _parse_joined_date(value):
     if not value:
         return None, "joined_date is required."
@@ -47,6 +59,20 @@ def _validate_student_payload(data, student_id=None):
         except (TypeError, ValueError):
             errors.append("age must be a positive integer.")
 
+    cgpa = data.get("cgpa")
+    if cgpa is not None:
+        try:
+            cgpa_val = float(cgpa)
+            if cgpa_val < 0 or cgpa_val > 4:
+                errors.append("cgpa must be between 0 and 4.")
+        except (TypeError, ValueError):
+            errors.append("cgpa must be a valid number.")
+
+    if "is_active" in data:
+        _, bool_err = _parse_bool(data.get("is_active"), "is_active")
+        if bool_err:
+            errors.append(bool_err)
+
     joined_raw = data.get("joined_date")
     if joined_raw is None or str(joined_raw).strip() == "":
         errors.append("joined_date is required.")
@@ -73,7 +99,7 @@ def create_student():
             email=data.get("email").strip(),
             age=int(data.get("age")),
             cgpa=float(data.get("cgpa", 0.0)),
-            is_active=data.get("is_active", True),
+            is_active=_parse_bool(data.get("is_active", True), "is_active")[0],
             joined_date=joined_date,
         )
         db.session.add(student)
@@ -120,7 +146,7 @@ def update_student(student_id):
         if "cgpa" in data:
             student.cgpa = float(data.get("cgpa"))
         if "is_active" in data:
-            student.is_active = bool(data.get("is_active"))
+            student.is_active = _parse_bool(data.get("is_active"), "is_active")[0]
         student.joined_date = joined_date
         db.session.commit()
         return jsonify({"message": "Student updated successfully.", "student": student.to_dict()}), 200
