@@ -1,0 +1,155 @@
+* {
+  margin: 0px;
+  font-family: sans-serif;
+}
+body {
+  background-color: #f0f2f8;
+ 
+}
+.container {
+  max-width: 80%;
+  margin: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.navbar {
+  background-color: #614fe9;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 25px;
+  padding-right: 25px;
+  color: white;
+}
+
+.nav {
+  font-weight: bolder;
+  margin-left: 50px;
+}
+.navbar ul li {
+  list-style: none;
+}
+
+.pages {
+  display: flex;
+  gap: 40px;
+}
+
+.pages li a {
+  text-decoration: none;
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
+}
+.pages li a:hover {
+  background-color: #6537d0;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  background-color: #1e1e2e;
+  padding: 15px;
+  color: rgb(162, 158, 158);
+  text-align: center;
+}
+.hero h4 {
+  margin-top: 20px;
+}
+.hero p {
+  color: gray;
+}
+
+.card {
+  margin-top: 20px;
+  border: 2px solid black;
+  width: 250px;
+  padding: 10px;
+  background-color: white;
+  border: none;
+  border-radius: 10px;
+}
+#enrolled {
+  color:#045e45;
+  font-weight: bolder;
+  background-color: #d1fae5;
+  display: inline;
+  font-size: small;
+
+  border-radius: 6px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding: 5px;
+}
+
+#alumni{
+   color:#5d6366;;
+  font-weight: bolder;
+  background-color:#f3f4f6;
+  display: inline;
+  font-size: small;
+
+  border-radius: 6px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding: 5px;
+}
+
+#name {
+  margin-top: 5px;
+  font-weight: bold;
+  padding: 5px;
+}
+#age,
+#course,
+#id {
+  color: grey;
+  padding: 5px;
+}
+.button {
+  background-color: rgb(14, 14, 192);
+  width: 100%;
+  padding: 5px;
+  border-radius: 10px;
+  border: none;
+  color: white;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  row-gap: 10px;
+}
+#search{
+  
+  width: 60vw;
+  padding: 0.6%;
+  border-radius: 10px;
+  
+  
+
+}
+
+.btn2{
+  display: flex;
+  
+ 
+}
+.btn1{
+  display: flex;
+  gap: 10px;
+  margin-left: 10px;
+  
+  
+}
+.btn1 button{
+   border-radius: 10px;
+}
+
+.about{
+ margin-top: 300px;
+ color: rgb(13, 137, 87);
+}

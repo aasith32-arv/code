@@ -1,3 +1,19 @@
 h1{
   color: rgb(4, 163, 161);
 }
+.nav{
+background-color: rgb(5, 34, 97);
+color: aliceblue;
+
+}
+.linknav{
+  color: aliceblue;
+
+
+}
+
+.nav ul{
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}

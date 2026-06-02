@@ -4,18 +4,21 @@ function Header(){
     return(
         <>
 <h1>This is a Header page</h1>
+
+<div className='nav'>
 <ul>
    
- <li><Link to="/">This is a home page</Link>
+ <li><Link to="/" className='linknav'>Home</Link>
 </li>
 
- <li><Link to="/about">This is a About page</Link>
+ <li><Link to="/about" className='linknav'>About</Link>
 </li>
 
- <li><Link to="/contact">This is a Contact page</Link>
+ <li><Link to="/login" className='linknav'>Login</Link>
 </li>
 </ul>
+</div>
         </>
     );
 }
-export default Header
+export default Header;

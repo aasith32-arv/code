@@ -1,0 +1,70 @@
+*{
+
+}
+
+
+.header li{
+   list-style: none;
+ padding: 7px;
+ 
+}
+
+.link2{
+    text-decoration: none;
+    color: white;
+}
+
+.header ul{
+    display: flex;
+    background-color: rgb(6, 93, 147);
+   justify-content: space-between;
+   padding: 20px;
+  
+}
+
+
+.footer{
+    background-color:  rgb(6, 93, 147);
+    color: white;
+    text-align: center;
+    padding: 7px;
+}
+
+.moduel{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: antiquewhite;
+    justify-content: space-between;
+}
+
+
+.home{
+    color: rgb(178, 7, 129);
+    height: 100vh;
+    text-align: center;
+    align-content: center;
+}
+
+.about{
+    background-color: rgb(11, 246, 168);
+    height: 100vh;
+    text-align: center;
+    align-content: center;
+    color: rgb(255, 255, 255);
+}
+
+.login{
+    background-color: rgb(252, 252, 9);
+    height: 100vh;
+    text-align: center;
+    align-content: center;
+}
+
+.notfound{
+    background-color: rgb(88, 3, 3);
+    height: 100vh;
+    text-align: center;
+    align-content: center;
+    color: white;
+}
